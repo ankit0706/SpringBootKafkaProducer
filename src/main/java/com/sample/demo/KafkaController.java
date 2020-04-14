@@ -12,7 +12,7 @@ public class KafkaController {
 	
 	@RequestMapping(value = "/publish")
     public String sendMessageToKafkaTopic(@RequestParam("message") String message) {
-		producer.sendMessage(message);
+		producer.sendMessage(new User(message, (int)(Math.random() * 100)));
 		return "Message pushed on Kafka topic";
     }
 
